@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futuristic Scroll Reveal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    
+    /* Futuristic Styles */
+    h2 {
+      font-size: 3rem;
+      letter-spacing: 0.2rem;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+    
+    h2::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      height: 4px;
+      width: 50%;
+      background: #00f0ff;
+      z-index: -1;
+      transition: width 0.6s ease-out;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      max-width: 600px;
+    }
+
+    #home {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* flex-direction: column; */
+      padding: 40px;
+      text-align: center;
+    }
+
+    #home:nth-child(odd) {
+      background: #161616;
+    }
+
+    #home:nth-child(even) {
+      background: #1c1c1c;
+    }
+
+    img {
+      max-width: 300px;
+      transition: transform 0.6s ease-out;
+    }
+
+    /* Scroll Reveal Effect */
+    .hidden {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Neon-like Glow Effect */
+    .neon-text {
+        margin-left: 5rem;
+      color: #00f0ff;
+      text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+    }
+
+    .glowing-border img {
+        margin-left: 50px;
+      border: 2px solid #00f0ff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 40px #00f0ff;
+      transition: box-shadow 0.6s ease-out;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Section 1: Futuristic Text with Neon Glow and Image Reveal -->
+  <section id="home">
+    <div class="hidden">
+      <h2 class="neon-text">Welcome to the Future</h2>
+      <p>The future of design is here. A place where technology and creativity converge.</p>
+    </div>
+    <div class="hidden glowing-border">
+      <img src="FRANK.jpeg" alt="Futuristic Image">
+    </div>
+  </section>
+
+  <!-- Section 2: Futuristic Typography with Animated Image Reveal -->
+  <section id="section2">
+    <div class="hidden">
+      <h2 class="neon-text">Innovate with Us</h2>
+      <p>Join us in exploring cutting-edge design, transforming concepts into reality.</p>
+    </div>
+    <div class="hidden glowing-border">
+      <img src="FRANK.jpeg" alt="Innovation Image">
+    </div>
+  </section>
+
+  <script>
+    // Scroll reveal function
+    function reveal() {
+      const reveals = document.querySelectorAll('.hidden');
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add('reveal');
+        } else {
+          reveals[i].classList.remove('reveal');
+        }
+      }
+    }
+
+    window.addEventListener('scroll', reveal);
+  </script>
+
+</body>
+</html>
