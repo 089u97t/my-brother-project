@@ -60,7 +60,47 @@
 
     nav ul li a:hover {
       color: #00ff88;
+      
     }
+    
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.line {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px;
+}
+    @media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color:  #000;
+        padding: 20px 0;
+        text-align: center;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+} 
 
     /* Section Base */
     /* section {
@@ -92,22 +132,35 @@
     }
 
     p {
-      font-size: 1rem;
+      font-size: 2rem;
       max-width: 600px;
       margin-bottom: 20px;
       opacity: 0;
       transform: translateX(-100px);
       transition: opacity 1.5s ease-out, transform 1.5s ease-out;
     }
-
+    #about {
+      display: flex;
+    }
+.hiddenw{
+  position: center;
+  text-align: center;
+  font-size: 3rem;
+}
+    #scroll-section{
+      display: flex;
+    }
     /* Services Section */
     .services {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 2px;
       width: 80%;
     }
-
+    /* #services{
+      margin-left: 16vw;
+    } */
+    
     .service-box {
       padding: 20px;
       background-color: #282828;
@@ -123,14 +176,14 @@
     }
 
     /* Portfolio Section */
-    .portfolio {
+    .portfolioa {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
     }
 
-    .portfolio-item {
+    .portfolioa-item {
       width: 250px;
       height: 150px;
       background-color: #00ff88;
@@ -141,7 +194,7 @@
       transform: translateY(50px);
     }
 
-    .portfolio-item:hover {
+    .portfolioa-item:hover {
       transform: scale(1.1);
       box-shadow: 0 0 25px #00ff88, 0 0 50px #00ff88;
     }
@@ -262,7 +315,7 @@
         width: 100%;
       }
 
-      .portfolio-item {
+      .portfolioa-item {
         width: 100%;
         height: 120px;
       }
@@ -270,6 +323,18 @@
       footer input[type="email"] {
         width: 180px;
       }
+      #home{
+        flex-direction: column;
+      }
+      #about{
+      flex-direction: column;
+    }
+     #services {
+      margin-right: 16vw;
+    } 
+    /* #portfolio{
+      margin-right: 16vw;
+    } */
     }
 
     @media only screen and (max-width: 480px) {
@@ -299,17 +364,18 @@
       z-index: 1;
     }
     
-    .hidden ::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -10px;
-      height: 4px;
-      width: 50%;
-      background: #00f0ff;
-      z-index: -1;
-      transition: width 0.6s ease-out;
-    }
+.hidden ::before {
+content: '';
+position: absolute;
+left: 0;
+bottom: -10px;
+height: 4px;
+width: 50%;
+background: #00f0ff;
+z-index: -1;
+transition: width 0.6s ease-out;
+}
+
 
     .hidden  {
       font-size: 1.2rem;
@@ -359,11 +425,12 @@
       text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff, 0 0 20px #00f0ff;
     }
 
-    .glowing-border img {
+    .glowing-border  img {
         margin-left: 50px;
-      border: 2px solid #00f0ff;
+      border: 2px solid #00ff40;
       border-radius: 10px;
-      box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 40px #00f0ff;
+      box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff40, 0 0 40px #00ff88
+      ;
       transition: box-shadow 0.6s ease-out;
     }
     .name {
@@ -460,6 +527,7 @@
       opacity: 1;
       transform: rotate(0deg) scale(1);
     }
+    
 
     :root {
     --bg-color: #1f242d;
@@ -467,34 +535,34 @@
     --text-color: #fff;
     --main-color: #0ef;
 }
-.portfolio1{
+.portfolio{
     background: var(--second-bg-color);
 }
-.portfolio1 h2 {
+.portfolio h2 {
     margin-bottom: 4rem;
 }
-.portfolio1-container {
+.portfolio-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     gap: 2.5rem;
 }
 
-.portfolio1-container .portfolio1-box{
+.portfolio-container .portfolio-box{
     position: relative;
     border-radius: 2rem;
     box-shadow: 0 0 1rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
 }
-.portfolio1-box img{
+.portfolio-box img{
     width: 100%;
     transition: .5s ease;
 }
-.portfolio1-box:hover img {
+.portfolio-box:hover img {
     transform: scale(1.1);
 }
-.portfolio1-box .portfolio1-layer{
+.portfolio-box .portfolio-layer{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -510,17 +578,17 @@
     transform: translateY(100%);
     transition: .5s ease;
 }
-.portfolio1-box:hover .portfolio1-layer{
+.portfolio-box:hover .portfolio-layer{
     transform: translateY(0);
 }
-.portfolio1-layer h4{
+.portfolio-layer h4{
     font-size: 3rem;}
 
-    .portfolio1-layer p {
+    .portfolio-layer p {
         font-size: 1.6rem;
         margin: .3rem 0 1rem;
     }
-.portfolio1-layer a{
+.portfolio-layer a{
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -529,11 +597,25 @@
     background: var(--text-color);
     border-radius: 50%;
 }
-.portfolio1-layer a i {
+.portfolio-layer a i {
     font-size: 2rem;
     color: var(--second-bg-color);
 }
 
+
+ @media (max-width:617px) {
+    .portfolio-container{
+        grid-template-columns: 1fr;
+    }
+    .portfolio h2 {
+        margin-bottom: 3rem;
+    }
+
+    .portfolio-container{
+        grid-template-columns: repeat(2,1fr);
+    }
+ 
+ }
 #privacy-policy {
     font-family: Arial, sans-serif;
     font-size: 16px;
@@ -568,46 +650,54 @@
   <!-- Navbar -->
   <nav>
     <div class="logo">Francis.</div>
-    <ul>
+    <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <div class="hamburger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+  </div>
   </nav>
 
   <!-- Section 1: Home -->
   <section id="home">
-    <div class="hidden">
-      <div class="name">IGBOAYAKA FRANCIS MARYANTHONY</div>
+    <div class="hiddenb">
+      <pre class="name" style="font-size: 40px; color: #00ff88;">FRANCIS</pre>
+      <div class="name2" style="font-size: xx-large; color: #00ff88;">IGBOAYAKA MARYANTHONY</div>
       <h2 class="hidden"></h2>
       
-      <p class="hidden">The future of design is here. A place where technology and creativity converge.</p>
-      <div class="button-container hidden">
+      <p class="hiddeno">The future of design is here. A place where technology and creativity converge.</p>
+      <div class="button-container hiddenm">
         <button>DOWNLOAD CV</button>
       </div>
     </div>
 
-    <div class="hidden1 glowing-border">
+    <div class="hidden1k glowing-border">
       <img src="NNH.png" alt="Futuristic Image">
     </div>
   </section>
 
   <!-- Section 2: About -->
+  <div class="hiddenw">ABOUT US</div>
   <section id="about">
-    <h2 class="hidden">About Us</h2>
-    <p class="hidden">We are at the cutting edge of design, merging creativity with futuristic technology to create groundbreaking web experiences.</p>
+   
+    <!-- <h2 class="hidden" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: large;">About Us</h2>  -->
+    <p class="hidden" style="margin-left: 16vw;">We are at the cutting edge of design, merging creativity with futuristic technology to create groundbreaking web experiences.</p>
     
-  </section>
-  <section id="scroll-section">
-    <h2 class="hidden">Futuristic Design in Action</h2>
-    <p class="hidden">Experience the next-level scroll animations where every element reacts differently to your scroll action.</p>
+  
+  <div id="scroll-section">
    
     <img class="hidden" src="1887.jpg" alt="Futuristic Image">
-  </section>
+  </div>
+</section>
 
   <!-- Section 3: Services -->
+  <div class="hiddenw">Services</div>
   <section id="services">
     <h2 class="hidden">Our Services</h2>
     <div class="services">
@@ -621,24 +711,25 @@
   </section>
 
   <!-- Section 4: Portfolio -->
-  <section id="portfolio">
+  <div class="hiddenw">PORTFOLIO</div>
+  <section id="portfolioa">
     <h2 class="hidden">Our Projects</h2>
-    <div class="portfolio">
-      <div class="portfolio-item hidden">assumenda.</div>
-      <div class="portfolio-item hidden"><img src="NNH.png" alt="Futuristic Image"></div>
-      <div class="portfolio-item hidden"></div>
-      <div class="portfolio-item hidden"></div>
-      <div class="portfolio-item hidden"></div>
-      <div class="portfolio-item hidden"></div>
+    <div class="portfolioa">
+      <div class="portfolioa-item hidden">assumenda.</div>
+      <div class="portfolioa-item hidden"><img src="NNH.png" alt="Futuristic Image"></div>
+      <div class="portfolioa-item hidden"></div>
+      <div class="portfolioa-item hidden"></div>
+      <div class="portfolioa-item hidden"></div>
+      <div class="portfolioa-item hidden"></div>
     </div>
-   
-<div class="portfolio1" id="portfolio1">
+  </section>
+<div class="portfolio" id="portfolio">
     <h2 class="heading">Lastest <span>Project</span></h2>
 
-        <div class="portfolio1-container">
-            <div class="portfolio1-box">
+        <div class="portfolio-container">
+            <div class="portfolio-box">
                 <img src="tile__cauwwcyyn9hy_medium.jpg" alt="">
-                <div class="portfolio1-layer">
+                <div class="portfolio-layer">
                     <h4>Web Design</h4>
                     <p>Lorem ipsum dolor sit amet consectetur</p>
                     <a href="#"><i class='bx bx-link-external'>F</i></a>
@@ -646,45 +737,45 @@
             </div>
         
 
-        <div class="portfolio1-box">
+        <div class="portfolio-box">
             <img src="promo_airpods_pro_order__d8xv36p4uwae_medium.jpg" alt="">
-            <div class="portfolio1-layer">
+            <div class="portfolio-layer">
                 <h4>Graphic Design</h4>
                 <p>Lorem ipsum dolor sit amet consectetur</p>
                 <a href="#"><i class='bx bx-link-external'></i></a>
             </div>
         </div>
 
-        <div class="portfolio1-box">
+        <div class="portfolio-box">
             <img src="promo_apple_watch_series_9_order__b3u85rm9zf6u_medium.jpg" alt="">
-            <div class="portfolio1-layer">
+            <div class="portfolio-layer">
                 <h4>Digital Marketing</h4>
                 <p>Lorem ipsum dolor sit amet consectetur</p>
                 <a href="#"><i class='bx bx-link-external'></i></a>
             </div>
         </div>
 
-        <div class="portfolio1-box">
+        <div class="portfolio-box">
             <img src="97e26239-f751-43ea-9584-c9f1860c20b4.jpg" alt="">
-            <div class="portfolio1-layer">
+            <div class="portfolio-layer">
                 <h4>Food Science</h4>
                 <p>Lorem ipsum dolor sit amet consectetur </p>
                 <a href="#"><i class='bx bx-link-external'></i></a>
             </div>
         </div>
 
-        <div class="portfolio1-box">
+        <div class="portfolio-box">
             <img src="am23.jpg" alt="">
-            <div class="portfolio1-layer">
+            <div class="portfolio-layer">
                 <h4>Food Science</h4>
                 <p>Lorem ipsum dolor sit amet consectetur </p>
                 <a href="#"><i class='bx bx-link-external'></i></a>
             </div>
         </div>
 
-        <div class="portfolio1-box">
+        <div class="portfolio-box">
             <img src="ang.jpg" alt="">
-            <div class="portfolio1-layer">
+            <div class="portfolio-layer">
                 <h4>Food Science</h4>
                 <p>Lorem ipsum dolor sit amet consectetur </p>
                 <a href="#"><i class='bx bx-link-external'>B</i></a>
@@ -763,6 +854,12 @@
   </audio>
 
   <script>
+   const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+});
     // Scroll reveal function
     function reveal() {
       const reveals = document.querySelectorAll('.hidden');
@@ -772,7 +869,7 @@
         const elementVisible = 150;
 
         if (elementTop < windowHeight - elementVisible) {
-          if (element.classList.contains('service-box') || element.classList.contains('portfolio-item')) {
+          if (element.classList.contains('service-box') || element.classList.contains('portfolioa-item')) {
             element.classList.add('reveal-scale');
           }
           element.classList.add('reveal');
@@ -784,7 +881,7 @@
 
     // Sound effect on hover
     const hoverSound = document.getElementById('hover-sound');
-    document.querySelectorAll('.portfolio-item, button, .service-box').forEach(item => {
+    document.querySelectorAll('.portfolioa-item, button, .service-box').forEach(item => {
       item.addEventListener('mouseenter', () => {
         hoverSound.play();
       });
